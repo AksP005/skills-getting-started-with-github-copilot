@@ -162,3 +162,78 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+.activity-card .participants-list {
+  list-style: none;
+  padding: 8px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 140px; /* keeps long lists compact */
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(26,35,126,0.02), rgba(255,255,255,0.02));
+  border-radius: 8px;
+  padding-inline-start: 12px;
+}
+
+/* pill-like list items with an initial avatar */
+.activity-card .participants-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f5ff;
+  color: #06306b;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  box-shadow: 0 1px 0 rgba(13, 27, 60, 0.03);
+  transition: transform 0.12s ease, background 0.12s;
+  width: fit-content;
+}
+
+/* circular avatar showing first initial from data-initial */
+.activity-card .participants-list li::before {
+  content: attr(data-initial);
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e8eaf6;
+  color: #1a237e;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex: 0 0 32px;
+  text-transform: uppercase;
+}
+
+/* subtle hover */
+.activity-card .participants-list li:hover {
+  transform: translateY(-2px);
+  background: #e8f0ff;
+}
+
+/* empty state styling */
+.activity-card .participants-list li.empty {
+  background: transparent;
+  color: #666;
+  border-radius: 6px;
+  padding: 6px 8px;
+  box-shadow: none;
+  font-style: italic;
+}
+
+/* scrollbar styling for modern browsers */
+.activity-card .participants-list::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.activity-card .participants-list::-webkit-scrollbar-thumb {
+  background: rgba(26, 35, 126, 0.2);
+  border-radius: 8px;
+}
+.activity-card .participants-list::-webkit-scrollbar-track {
+  background: transparent;
+}
